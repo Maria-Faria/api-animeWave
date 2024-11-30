@@ -1,7 +1,7 @@
 import { Controller, Post, Req, Res } from '@nestjs/common';
 import { Request, Response } from 'express';
-import { validateUserToLogin } from 'src/models/schemas/userSchema';
-import { getUserByEmail } from 'src/models/userModel';
+import { validateUserToLogin } from 'src/models/schemas/UserSchema.ts';
+import { getUserByEmail } from 'src/models/userModel.ts';
 import * as bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import { SECRET_KEY } from '../../config';
