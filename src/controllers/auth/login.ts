@@ -3,7 +3,7 @@ import { Request, Response } from 'express';
 import { validateUserToLogin } from 'src/models/schemas/UserSchema';
 import { getUserByEmail } from 'src/models/userModel';
 import * as bcrypt from 'bcrypt';
-import jwt from 'jsonwebtoken';
+import { sign } from 'jsonwebtoken';
 import { SECRET_KEY } from '../../config';
 
 @Controller('login')
@@ -41,7 +41,7 @@ export class LoginUser {
         });
       }
 
-      const token = jwt.sign(
+      const token = sign(
         { name: user.name, publicID: user.public_id },
         SECRET_KEY,
         { expiresIn: 60 * 5 },
